@@ -131,7 +131,27 @@ export default function ZodForm() {
               </p>
             )}
           </div>
-
+{/* --- 電話番号の追加分 --- */}
+<div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2">
+    電話番号 <span className="text-gray-400 text-xs">(任意)</span>
+  </label>
+  <input
+    type="text"
+    {...register("phone")} // ← スキーマの key 名と合わせる
+    className={`shadow border rounded w-full py-2 px-3 text-gray-700 ${
+      errors.phone ? "border-red-500" : ""
+    }`}
+    placeholder="09012345678"
+  />
+  {/* エラーメッセージの表示 */}
+  {errors.phone && (
+    <p className="text-red-500 text-xs mt-1">
+      {errors.phone.message}
+    </p>
+  )}
+</div>
+{/* ---  電話番号の追加分ここまで --- */}
           {/* お名前 */}
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
